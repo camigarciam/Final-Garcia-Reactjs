@@ -1,0 +1,20 @@
+.Detail{
+    border-radius: 50%;
+    border: 2em;
+}
+
+.retroceder{
+    background-color:#ff6347;
+    border: 0;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+    
+}
+
+.retroceder:hover{
+    background-color: #f69a8a;
+}
+
+
+

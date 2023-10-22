@@ -1,0 +1,10 @@
+.greeting-container{
+    height: 100vw;
+    background-color: aquamarine;
+    text-align: center;
+    color: gray;
+}
+h1{
+    text-align: center;
+    background-color: white;
+}
