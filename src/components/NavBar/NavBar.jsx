@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className='navbar-container' variant="dark">
       <Container>
-        <Navbar.Brand as={Link} to="/segundaentrega-GarciaM" >
+        <Navbar.Brand as={Link} to="/" >
         <img src="https://images.emojiterra.com/google/android-10/512px/1f349.png" height={30}></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
