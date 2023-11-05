@@ -17,4 +17,29 @@
 }
 
 
+.Option{
+    background-color:#ff6347;
+    border: 0;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5%;
+    color: white;
+    justify-content: center;
 
+}
+
+.Option:hover{
+    background-color: #f69a8a;
+}
+
+ .price{
+
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: #f4c9c2;
+}

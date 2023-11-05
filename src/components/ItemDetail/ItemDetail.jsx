@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ItemDetail.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext';
 
+const ItemDetail = ({ id, name, price, description, image, stock }) => {
+  const [quantityAdded, setQuantityAdded]= useState(0)
 
-const ItemDetail = ({ name, price, description, image }) => {
+  const {addItem} = useContext(CartContext)
 
+  const handleOnAdd=(quantity)=>{
+    setQuantityAdded(quantity)
+
+    const item ={
+      id, name, price
+    }
+
+    addItem(item,quantity)
+  }
+  
   const navigate = useNavigate();
   return (
     <Container>
@@ -19,11 +33,19 @@ const ItemDetail = ({ name, price, description, image }) => {
         <Col style={{ background:"white" }} >
           <div style={{padding:"10px" }}>
             <h1 style={{paddingBottom: "5px", fontSize: "30px", fontWeight: "1000", marginTop:"15px"}}>{name}</h1>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", marginTop: "30px", marginBottom: "30px" }}> $ {price} usd c/u </h3>
+            <h3 className='price'> $ {price} usd c/u </h3>
             <h2 style={{ marginTop: "20px", fontSize: "30px" }}>Descripción</h2>
             <p>{description}</p>
+            <footer className='ItemFooter'>
+            {
+              quantityAdded > 0 ?(
+              <Link to="/cart" className="Option">Terminar compra</Link> 
+              ):(
+                <ItemCount initial ={1} stock={10} onAdd={handleOnAdd}/>
+              )
+            }
+          </footer>
           </div>
-          
         </Col>
       </Row>
     </Container>
@@ -31,5 +53,12 @@ const ItemDetail = ({ name, price, description, image }) => {
   )
 }
 
-export default ItemDetail
+export default ItemDetail;
+
+
+
+
+
+
+
 
